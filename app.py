@@ -25,7 +25,7 @@ def registration():
 
 @app.route('/reserve', methods = ["POST"])
 def reserve():
-    return Reg.reserve(request)
+    return Res.reserve(request)
 
 if __name__ == '__main__':
     app.run()
