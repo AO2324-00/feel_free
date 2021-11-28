@@ -13,8 +13,9 @@ def registration(request):
         return make_response('', 400)
 
     # bodyのデータに必要な情報が全て含まれているかをチェック(含まれていない場合は400を返す)
-    if(not ('title' in body and  'address' in body and 'image_url' in body )):
-        return make_response('', 400)
+    for key in body:
+        if key not in ['title', 'address', 'image_url'] or body[key] is None:
+            return make_response('', 400)
 
     # データベースに接続
     conn = sqlite3.connect(dbname)
@@ -25,6 +26,10 @@ def registration(request):
 
     # 追加情報を反映
     conn.commit()
+
+    cur.execute("SELECT * FROM places")
+    for row in cur:
+        print(row)
 
     # データベースとの接続を解除
     conn.close()
