@@ -27,9 +27,9 @@ def registration(request):
     # 追加情報を反映
     conn.commit()
 
-    cur.execute("SELECT * FROM places")
-    for row in cur:
-        print(row)
+    # cur.execute("SELECT * FROM places")
+    # for row in cur:
+    #     print(row)
 
     # データベースとの接続を解除
     conn.close()
