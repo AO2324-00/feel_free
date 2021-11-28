@@ -1,7 +1,5 @@
-from flask import jsonify, request
+from flask import jsonify, request, make_response
 import sqlite3
-
 dbname = 'FeelFree.db'
-
 def reserve(request):
-    return
+    return make_response('', 200)
