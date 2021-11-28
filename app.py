@@ -15,9 +15,9 @@ def places():
 def place(id):
     return P.get_place(id)
 
-@app.route('/lend/<id>', methods = ["GET"])
-def lend(id):
-    return L.get_lend(id)
+@app.route('/lend/<place_id>', methods = ["GET"])
+def lend(place_id):
+    return L.get_lend(place_id)
 
 @app.route('/registration', methods = ["POST"])
 def registration():
